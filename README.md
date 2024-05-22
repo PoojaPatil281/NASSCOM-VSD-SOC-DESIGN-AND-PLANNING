@@ -21,3 +21,13 @@ Chip has ollowing parameters
 ![rtl to gds](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/08e04d23-806d-4390-b3fd-268d504fc610)
 
 ### openlane ASIC flow
+![openlane flow](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/bfeab34c-b68e-4f77-b1a3-10eb720a0fd9)
+
+Tool used here is openLANE. It is basically of flow.
+the main aim of openLANE is to have complete RTL to GDS flow. so you put RTL and what u have at the end is GDSII file. This tool is very similar to commercial EDA tool.
+Whenever you want to know more about commands in linux use commandd : eg : ls –help
+
+### Openlane directory structure 
+PDK we are using here is sky130A.
+
+
