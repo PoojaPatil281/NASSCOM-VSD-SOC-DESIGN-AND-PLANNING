@@ -44,22 +44,39 @@ libs.tech folder contains file related to tool that is specific to tool.
 ![c](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/7b1562d3-46a1-4a62-8319-ad5a041165c7)
 
 Here klayout,magic,qrflow,openlane,ngspice are the tools.We would be working on pdk variant- sky130_fd_sc_hd.Here sky130 is process name..130nm…fd is abbreviated foundry name. so fd is skywater foundry name. sc is standard cell library. hd is a pdk variant and hd stands for high density.
+
 ![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/e7ac9164-a843-4a13-bb37-90ec47f97029)
+
 So tech lef file contains the metal layer information.lib file contains timing files.
+
 ![e](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/040ce9d4-7ace-4445-a16d-070b96687720)
+
 ![f](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6407fd5e-2aa3-4831-ae1b-b856d9b1fff2)
+
 ![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/837c2314-7f2d-4a47-a1c5-8c0ecca759b5)
+
 Inside openlane folder :
+
 ![h](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/44472f4d-f197-4a46-9d2a-eae94ac2ac8b)
+
 Inside design folder :-there are 30-40 design but here we are using design picorv32a.
+
 ![i](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/4d62f7b1-9708-4b37-a7d7-88a7501d32f0)
+
 Inside picorv32a design:
+
 ![j](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/a597a6a4-9135-4f0c-862b-1e11ced4eb3c)
+
 src folder contains RTL and SDC file.
+
 ![k](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/fd5880c5-4b8e-465e-ae24-12e053dbdbbe)
+
 openlane have default switches so everytime you have to create your own config.tcl file that contains info about clock period,design name,clockport,Verilog file path,sdc file path so this config.tcl file will overwrite the default setting present in openlane. 
+
 ![l](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/a1fc2019-539c-4b08-a7cd-65785510bd58)
+
 ![m](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b51e5285-7143-47c8-bb4c-ffe9d20eace5)
+
 This file is also another same kind of config.tcl file. Which is the highest priority file so whatever the content present in config.tcl file will get overwrite by this file. So in conclusion, first it take default switches present in openlane then config.tcl will overwrite those switches, again if sky130A_sky130_fd_sc_hd_config.tcl file present then it will overwrite the content of config.tcl file.To open file use cmd :- less filename.tcl
 
 ### Tool Invoking, Extracting packages and data preparation steps
