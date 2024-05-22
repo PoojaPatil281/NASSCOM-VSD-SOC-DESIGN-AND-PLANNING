@@ -312,12 +312,169 @@ We will balance delay and area by using a strategy.first we will check what is t
 ![u](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/ec5720c6-5e5a-469c-bb34-c605d21fd92a)
 ![v](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/18cde149-fab0-45f7-9139-04f44428bf1a)
 We will set SYNTH_BUFFERING and SYNTH_SIZING to 1
+
 Buffering :- inserting a buffer to reduce wire delay.example : reset pin goes everywhere in chip so we want those high fanout nets to be buffered in order to reduce delay.
+![w](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/f154c443-fa2c-43df-9137-a2fd86abfbb6)
+
+Driving cell :-The cell that drive input ports.If input port has lots of fanout then high drive strength cell is needed to drive input port.
+Now once again we will run synthesis to check whether setup slack is reduced or not
+run_synthesis
+![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/f282c8b9-8e89-47f5-a576-341e8a85c26f)
+![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/24aa49d6-552b-4e73-9015-ca716d0c458d)
+WNS & TNS =0
+Chip area:
+![z](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/5c12a032-622c-4443-b1be-f0ed6207e38c)
+Before : WNS = -22.17 & TNS =-639.39
+chip area =147712.918400
+After: WNS & TNS =0ns & chip area= 181730.54400
+can observe the custom vsd Inverter cell
+![a](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/5d7d5440-ee4f-400c-bf03-95f911292ef1)
+Can also check whether custom vsd invgerter cell is present in merged.lef file
+![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/34ecf86d-fac7-4c65-bfce-6e3abe77bc56)
+run_floorplan
+Issues I faced due to failed flow that I had to manually run the flow.
+![c](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/304bb2d7-981b-489f-b768-0c530073cc41)
+init_floorplan
+![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/50fff443-327a-4cde-8930-3368cf24d471)
+Place_io
+![e](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/8d8d2c30-7d92-4469-8ffe-0baf565fa3f6)
+Tap_decap_or
+![f](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/5320f1e1-5fd6-4ad1-b1d8-a3bcb5480e63)
+Run_placement
+![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6d4879d6-c362-4425-a8bf-15c1069251d7)
+![h](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b7007bd5-d433-43a8-a0df-f7f33573f812)
+Placement Layout
+![i](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/1df7e2cc-884a-468b-8c77-3afdd201f5f5)
+![j](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/178dd62f-0620-48cf-bbb6-561e759c5e2c)
+Can see the placement of custom vsd inverter cell
+![k](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/090b242d-6e2c-48c5-ab8a-c1d55cf3a0cd)
+![l](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/ed8b5202-6f77-4ea1-be29-ed273ef4a736)
+![m](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/7a40cd01-520b-497e-bcee-350b8760ac82)
+Can observe that metal1 layer which is taken from library is correctly align with metal 1 layer of custom inverter cell.
+
+### Lab steps to configure openSTA for post-synthesis timing analysis
+After Placement stage,create file pre_sta.confi file inside openlane directory
+![n](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/87c96cd8-ccbe-4eb3-9f42-f3edde508131)
+create file my_base.sdc file inside src directory of picorv32a
+![o](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/d54ca8ae-23b6-4421-9181-89b696139b90)
+to run pre_sta.conf in sta use command : sta pre_sta.conf
+![p](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3634ddd4-3f6b-43b9-b103-b82ecdd01cd8)
+Setup slack : -5.59 (violated)
+Fixing setup slack 
+![q](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/1b7f5d9b-a9c5-4ad2-8060-53320973db11)
+After Placement stage during pre sta analysis ,you can observe that input transition is high due to high output capacitance so we can optimize fanout value in openlane flow.
+![r](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/976990b4-2a59-4a9b-b0da-e78f72e02253)
+![s](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6f5eed9e-63e3-4a18-a37f-f447494ec511)
+Yon can see driver pin of net _13292_ and it is driving input pins of 2 loads
+![t](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b4b3849b-1aee-4a72-9cdd-2a07f8afe175)
+
+### Clock Tree Synthesis
+Default parameters that are set in CTS are :
+![u](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/050d9f78-8f85-448b-b8ab-f94acce23145)
+Here target skew is basically a global skew that is set to 200ps.ROOT_BUFFER need high driving strength.
+![v](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/ff5edfdf-87b0-45c4-8cd7-e2e2d3fb712f)
+CLOCK_TREE_SYNTH enables CTS and tirtonCTS is the tool which performs CTS. Here we are doing analysis for typical corner but not for multi corner. Since one of the drawback of tritonCTS is it cannot do optimization for multiple corner.
+CTS_TOLERANCE defines the tradoff between QoR and Runtime. QoR stands for Quality of results.
+Different QoR of CTS are:
+- 	Better skew value
+- 	50 % duty cycle	
+Higher value of QoR means design is meeting the required specification but it will require longer runtime.
+So higher value of CTS_TOLERANCE means lower runtime but worst QoR.
+run_cts
+![w](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/8380f13d-5ff2-4119-bf4b-0acd8b265ade)
+In CTS stage buffers are added. So inside synthesis result directory you can observe the modified netlist file that contents previous netlist data and buffers that are added during CTS stage as shown below.
+![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/2389b5b6-0e29-44ea-b21d-db00f7eabae4)
+![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/872af6ac-2c88-4260-ac12-410b309b7569)
+
+### Lab steps to analyze timing with real clocks using openSTA
+To perform timing analysis, instead of invoking separate openSTA tool we will go inside openroad since STA is integrated inside openroad.The benefit of doing this is we are actually inside of openlane and we can use environmental variables. 
+![z](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3cfd804e-1829-4e63-b208-2b3da969b685)
+In openroad, timing analysis is performed by first creating db file which is created using lef and def(post CTS def).
+![a](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/2c5760cb-cad5-4e67-8437-d48ef5cafe73)Setup slack :
+Create db file
+![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b9a3055d-e2df-450d-9204-b1412688dff0)
+![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b9a3055d-e2df-450d-9204-b1412688dff0)
+![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/533230db-a898-4bdf-b9ef-1fa83cbef38e)
+Setup slack
+![e](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b519dddf-926c-4ec7-994d-7ad4e696e56f)
+Hold slack
+![f](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/4921b414-6a0b-4cf1-ba68-b0119eec43ca)
+Now we have to check whether this analysis is correct or not?
+since we have built CTS for typical corner and we have given max and min library during timing analysis in openroad i.e analyzing for slow and fast corner.so this analysis is incorrect.so we will provide typical library in openroad to perform typical corner analysis.
+![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/28b679b9-b093-4232-86b2-7a32db416bbf)
+
+Setup slack :
+![h](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/a203e79f-9d96-4e8c-91db-76d56ec84616)
+Hold slack:
+![i](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/b2abd71a-8113-44f7-a79d-8e6e71823be0)
+So from above results of min_max corner and typical corner analysis we can observe CTS will not have setup and hold violation for typical corner.
+
+Now we will replace synthesis netlist(post cts) with a new for that we will modify buffer list means will remove clk_buf1 from the list and again run CTS and check whether it meets skew value or not.
+![j](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/da4a27ac-dd9f-4fff-a170-0bef9127da29)
+![k](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/55f20424-55c1-4f1e-bca0-ed341ec757d8)
+![l](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/bc72397e-241d-49a9-9890-70eb4e97a1c2)
+Since we have use post CTS def file.this is the reason that we have got error.so we need to set current placement def as shown below. 
+![m](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/82d06c89-0e02-4f63-b330-ee156f453e4d)
+![n](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/cf3541ed-e087-49a0-9cca-6c7425d654b5)
+Now again we have to create db
+![o](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/d84fdbca-38e7-4148-bc84-96111423e56a)
+![p](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/ea455660-3ac7-4d56-8f74-b25c5375cc18)
+Setup slack :
+![q](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/e46551b3-fdda-477f-9165-0504f4c7356a)
+Hold slack :
+![r](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/f9ddeb9f-8826-4766-af01-d3316fcba0d1)
+So from above results we can observe that setup slack get improved but area increased when we use clkbuf_2 instead of clkbuf_1 and can also see the clkbuf_2 in timing report as shown below
+![s](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/99941d47-752f-47fc-ae03-fd6ce32f1118)
+Clock skew : It is the time difference between arrival time of clock at two different flop. 
+It should be maximum 10% of clock period(12ns).
+![t](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/c1cf1cac-1b51-4283-b089-17172799a695)
+Inserting clkbuf_1 inside buffer list
+![u](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/158bf614-18e4-4207-acb9-e7685b7fa14f)
 
 
+# Day 5 : Final steps for RTL2GDS using tritonRoute and openSTA
+### Lab steps to build power distribution network(PDN)
+In openlane PDN is built after CTS stage. gen_pdn is the proc that is used to run PDN.
+Issues that I faced while running PDN are:
+There are some variables that were not defined in config.tcl such as LIB_SYNTH_COMPLETE Since this variable is called by the proc gen_pdn which is defined in or_pdn.tcl file
+And also LEF_MERGED_UNPADDED variable was not set in config.tcl
+![v](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/75ef331e-d36c-43ec-9b4e-56b72f3e3746)
+Power Planning :
+![w](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/17336522-2efe-4560-9d91-305883745891)
+Standard cell are in metal1,straps are in metal4 and metal5.
+After PDN, current def file i.e picorv32a.cts.def is now changed to pdn.def which has the information about CTS def and PDN.
+![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3bda6f8e-6e9d-4157-a2f1-f3bfab5ad5de)
 
-
-
+Routing :
+Default switches set for routing are :
+![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6d169e03-4e4a-448d-af23-673c6459bc0d)
+Routing strategy : There are 5 routing strategy
+Strategy -- 0,1,2,3,14
+Routing strategy 0 means routing will not be converged to zero DRC,but have less runtime and memory requirement.Routing strategy 14 required more runtime and memory requirement.In this design we are using routing strategy 0.
+![z](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/8b954ac9-c14d-410c-941d-4771d2b3d0b6)
+Entire Routing process is divided into two types :
+- Global Route or Fast Route
+In global route routing is divided into rectangular grid cells which can be represented as 3D routing graph and it is used durring global route.fast route is basically a engine which performs global route. global route first creates a routing guide i.e boxes(pins of cell) as shown below.so global route output is set of routing guide for each of the net.
+Detail Route
+Detail route is performed by engine tritonRoute.In detail route we use output from global route i.e routing guide and follow some algorithm to find the best possible connectivity among all this points.
+![a](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/23b6d8b9-1cba-4edc-8528-50cae6177147)
+![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/089d1ac3-76ce-441b-8d56-943e21cd7f28)
+In routing alteranate orientation of metal layer is preferred because,If metal1 has non preferred routing direction,it will be parallel to metal2 which can create parallel capacitance so it can degrade the signal. Hence alternate routing direction is preferred.
+Two routing guides are connected if:
+- They are on the same metal alyer with touching edges.
+- They are on neighboring metal layers with a nonzero vertically overlapped area.
+![c](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/1b611571-9162-4af8-9041-adac482784b4)
+Detail Routes Inputs and outputs :
+- Input : LEF,DEF,preprocessed guides
+- Outputs:detailed routing soultion wth optimized wire-length via count.
+- Constraints : Route guide honoring,connectivity constrains and design rules.
+Run_routing
+![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3a1000b6-57d6-48f7-a634-29062dd2e506)
+![e](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/78e85ec5-4b26-409e-9828-2b62345f26f2)
+Routing guides : It is the output of fast route. Detail routing ensures that routing happen within this routing guides.
+![f](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/4fd11322-bb67-4684-a627-8694249b01a1)
+Can see that for each net there can be many routing guides.
+![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/8d96565d-cccd-468d-8d70-936f1bbc6c09)
 
 
 
