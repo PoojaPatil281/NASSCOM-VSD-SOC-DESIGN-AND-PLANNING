@@ -212,6 +212,7 @@ Unplaced standard cells at origin
 Placement stages :
 - Global Placement
 - Detail Placement
+
 Global placement aim is to reduce wirelength. In  openlane there is a concept of HPWL.HPWL stands for half parameter wire length.
 Screenshots of Placement run
 
@@ -304,10 +305,12 @@ Now we need to check output vs time i.e transient response for that use command 
 
 ### Lab steps to characterize inverter using sky130 model files
 Characterizing a cell means to find out 4 parameters such as:
+
 - rise transition : Time taken for output waveform to transit from a value of 20% of a maximum value to 80% of maximum value.
 - Fall time : Time take to fall output from 80% to 20%
 - Propagation time
 - Cell fall delay
+  
 Rise time : 
 Plot of output vs input time a
 here maximum value is 3.3v so 20% of 3.3 is 0.66
