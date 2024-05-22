@@ -17,3 +17,7 @@ Chip has ollowing parameters
 - CTS : In clock tree synthesis, clock tree structure is defined which has minimal skew.
 - Routing : In this step, physical connection of metal layers are done for all logical connection present in the design.
 - Signoff : In this step, we decide if design follows DRC rules and meets timing requirement.
+
+![rtl to gds](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/08e04d23-806d-4390-b3fd-268d504fc610)
+
+### openlane ASIC flow
