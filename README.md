@@ -34,3 +34,9 @@ here skywater-pdk folder contains information related to timing,cell lef,technol
 Sky130A folder is that folder which has been made comfortable to work with opensource environment.
 
 
+
+
+
+
+
+
