@@ -317,7 +317,9 @@ Characterizing a cell means to find out 4 parameters such as:
 Rise time : 
 Plot of output vs input time a
 here maximum value is 3.3v so 20% of 3.3 is 0.66
-![i](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/95dcb717-e7af-410d-b07a-ddbdc26ea9cf
+
+![i](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/95dcb717-e7af-410d-b07a-ddbdc26ea9cf)
+
 So Rise time = 2.244-2.181=0.063ns
 Fall time :
 
