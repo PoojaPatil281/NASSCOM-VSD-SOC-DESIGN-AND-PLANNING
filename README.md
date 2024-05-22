@@ -727,9 +727,10 @@ After PDN, current def file i.e picorv32a.cts.def is now changed to pdn.def whic
 ![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3bda6f8e-6e9d-4157-a2f1-f3bfab5ad5de)
 
 Routing :
+
 Default switches set for routing are :
 
-![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6d169e03-4e4a-448d-af23-673c6459bc0d
+![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6d169e03-4e4a-448d-af23-673c6459bc0d)
 
 Routing strategy : There are 5 routing strategy
 Strategy -- 0,1,2,3,14
