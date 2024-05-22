@@ -505,6 +505,7 @@ Buffering :- inserting a buffer to reduce wire delay.example : reset pin goes ev
 
 Driving cell :-The cell that drive input ports.If input port has lots of fanout then high drive strength cell is needed to drive input port.
 Now once again we will run synthesis to check whether setup slack is reduced or not
+
 run_synthesis
 
 ![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/f282c8b9-8e89-47f5-a576-341e8a85c26f)
@@ -544,7 +545,7 @@ Tap_decap_or
 
 ![f](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/5320f1e1-5fd6-4ad1-b1d8-a3bcb5480e63)
 
-Run_placement
+run_placement
 
 ![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/6d4879d6-c362-4425-a8bf-15c1069251d7)
 
@@ -610,6 +611,7 @@ Different QoR of CTS are:
 - 	50 % duty cycle	
 Higher value of QoR means design is meeting the required specification but it will require longer runtime.
 So higher value of CTS_TOLERANCE means lower runtime but worst QoR.
+
 run_cts
 
 ![w](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/8380f13d-5ff2-4119-bf4b-0acd8b265ade)
@@ -753,6 +755,7 @@ Detail Routes Inputs and outputs :
 - Input : LEF,DEF,preprocessed guides
 - Outputs:detailed routing soultion wth optimized wire-length via count.
 - Constraints : Route guide honoring,connectivity constrains and design rules.
+- 
 Run_routing
 
 ![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/3a1000b6-57d6-48f7-a634-29062dd2e506)
