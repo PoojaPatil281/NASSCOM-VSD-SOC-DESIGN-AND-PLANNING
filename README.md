@@ -117,6 +117,7 @@ Netlist basically defines connectivity between all the Elements.Dimension of chi
 
 so the minimum area Occupied by the netlist is: 2unit X 2unit.
 Utilization Factor : It is the area occupied by netlist to the total area of the core. When Utilization factor is 1 that is 100% which means core is completely occupied by the logic.
+
 Aspect Ratio : Height of core to the width of core. When aspect ratio is 1 it indicates that the chip is square shape. when aspect ratio is other than 1,itindicates that the chip is rectangular shape. 
 
 ![s](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/96481d09-71e6-4144-9b6d-39d7c250047a)
