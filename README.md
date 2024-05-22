@@ -390,7 +390,8 @@ use box command to get width and height of selected box
 ![x](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/966b9a98-0472-4adc-b00f-24c5a5afaaec)
 
 check the spacing between poly resistor and poly and compare this value with actual value in Skywater website. It can be clearly observe that there is a spacing error.Lets fix this spacing error.
-Now make changes in Sky130a.tech file as shown below.
+Now make changes in Sky130a.tech file as shown below 
+
 Before :
 
 ![y](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/adc1921b-57df-46f4-9585-705bbebfb50a)
@@ -434,6 +435,7 @@ Here li1 X Y 0.23 0.46 :---- 0.23 is horizontal track pitch offset,0.46 is horiz
 li1 X Y 0.17 0.34 :----- 0.17 is vertical tack pich offset, 0.34 is vertical pitch
 X & Y are the metal layer direction.
 converge grid with tack value to check whether input port X and output port Y are on the intersection of vertical and horizontal of li1 layer. Since input and output port are defined on li1 layer.
+
 grid before : press g
 
 ![g](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/2e9d2e17-a822-4791-95a3-a89669a6710a)
