@@ -29,5 +29,8 @@ Whenever you want to know more about commands in linux use commandd : eg : ls â€
 
 ### Openlane directory structure 
 PDK we are using here is sky130A.
+![a](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/1a5c0920-736e-4592-befa-0152910a98b2)
+here skywater-pdk folder contains information related to timing,cell lef,technology lef. skywater-pdk files are silicon foundry related files. This files are made to work with commercial EDA tools and not for opensource EDA tools.so open_pdks folder added here to mitigate this problem. basically they are sets of scripts and files that converts this foundry level PDKâ€™s to be compatible with open source EDA tools like magic(for layout),netgen.
+Sky130A folder is that folder which has been made comfortable to work with opensource environment.
 
 
