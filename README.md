@@ -81,6 +81,7 @@ This file is also another same kind of config.tcl file. Which is the highest pri
 
 ### Tool Invoking, Extracting packages and data preparation steps
 Command used for invoking tool is docker.After invoking tool, before performing synthesis,first step is data preparation.
+
 ![n](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/affd302a-0d26-4d38-ba55-68c19b9bbdd4)
 
 here interactive meaning is running in step by step.
@@ -92,7 +93,9 @@ data preparation merge both cell lef & tech lef into one file.so after data prep
 
 ## Synthesis 
 Command used :  run_synthesis .
+
 ![o](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/34c19cea-b57b-499f-b7a7-d8335357b66d)
+
 Calculation of Flop Ratio and DFF % from synthesis statistics report file.
 Flop ratio = No. of Flipflop/No. of Cells
                   =1613/14876
@@ -101,8 +104,11 @@ DFF % = 0.1084 * 100 = 10.84%
 
 # Day 2 : Good Floorplan vs Bad Floorplan and Introduction to library Cells
 Define width and Height of core die.
+
 ![p](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/91e5fd88-dfda-4da5-81d9-b1fc24c6d224)
+
 Lets consider an example 1 of Netlist shown below
+
 ![q](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/f7c9e019-7060-4372-bdcd-93e920cba3bd)
 Netlist basically defines connectivity between all the Elements.Dimension of chip is mostly depends on dimension of the logic gates.Lets consider the dimension standard cell as 1unit X 1unit.so the area of each standard cell will become 1sq.unit.And also assumes same area for Flipflop as shown below.
 ![r](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/e7cdd758-f030-41f6-9c6a-296216ae016d)
