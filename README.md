@@ -134,6 +134,7 @@ It says that out of complete chip area 25 % of area is occupied by the logic and
 Aspect ratio = 4 Unit /4 Unit =1
 It says that the chip is square shape.
 Define Location of Preplaced Cells : 
+
 Preplaced cells are the IP’s such as memory,clock gating cell, comparator, mux. All of them can be implemented once and can be instantiated multiple times on to a netlist. This IP’s are the part of top level netlist so they receives input and delivers output signal but the functionality of this cells should be Implemented once. Hence they are called as Preplaced cells.these cells are placed only once in the chip.the arrangement of these IP’s in a chip is referred as Flooplannning.this arrangement should be perform before routing.since they are placed before actual placemnt and routing hence they are called as Preplaced cells.
 
 ![u](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/d6ec098b-92f1-433d-870d-c1230d5ff49c)
