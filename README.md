@@ -160,6 +160,7 @@ Logical Cell Placement Blockage : This Blockage ensures that there should not be
 
 ### Floorplan Lab 
 To run floorplan command used is run_floorplan.
+
 Screenshots of floorplan run
 
 ![z](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/4bd3f50c-6431-4aa4-9b28-8909e7a00daa)
@@ -214,6 +215,7 @@ Placement stages :
 - Detail Placement
 
 Global placement aim is to reduce wirelength. In  openlane there is a concept of HPWL.HPWL stands for half parameter wire length.
+
 Screenshots of Placement run
 
 ![m](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/4c6293c2-3030-45fb-bddd-df715483247d)
@@ -403,6 +405,7 @@ After:
 ![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/e53d27ef-a7d8-4a4c-a4e7-055daaab7f9f)
 
 Now after updating tech file load it again and check for errors using command drc check.
+
 Screenshots of fixed spacing drc issue between polyresistor and poly.
 
 ![c](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/d6d29053-2999-4a0d-9923-7c068448c6da)
