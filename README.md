@@ -21,6 +21,7 @@ Chip has ollowing parameters
 ![rtl to gds](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/08e04d23-806d-4390-b3fd-268d504fc610)
 
 ### openlane ASIC flow
+
 ![openlane flow](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/bfeab34c-b68e-4f77-b1a3-10eb720a0fd9)
 
 Tool used here is openLANE. It is basically of flow.
@@ -29,13 +30,19 @@ Whenever you want to know more about commands in linux use commandd : eg : ls �
 
 ### Openlane directory structure 
 PDK we are using here is sky130A.
+
 ![a](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/1a5c0920-736e-4592-befa-0152910a98b2)
+
 here skywater-pdk folder contains information related to timing,cell lef,technology lef. skywater-pdk files are silicon foundry related files. This files are made to work with commercial EDA tools and not for opensource EDA tools.so open_pdks folder added here to mitigate this problem. basically they are sets of scripts and files that converts this foundry level PDK’s to be compatible with open source EDA tools like magic(for layout),netgen.
 Sky130A folder is that folder which has been made comfortable to work with opensource environment.
+
 ![b](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/563968d4-8e62-4160-bce1-a6174e1cc9c2)
+
 libs.ref folder contains file related to cell lef,timing that is specific to technology.
 libs.tech folder contains file related to tool that is specific to tool.
+
 ![c](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/7b1562d3-46a1-4a62-8319-ad5a041165c7)
+
 Here klayout,magic,qrflow,openlane,ngspice are the tools.We would be working on pdk variant- sky130_fd_sc_hd.Here sky130 is process name..130nm…fd is abbreviated foundry name. so fd is skywater foundry name. sc is standard cell library. hd is a pdk variant and hd stands for high density.
 ![d](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/e7ac9164-a843-4a13-bb37-90ec47f97029)
 So tech lef file contains the metal layer information.lib file contains timing files.
