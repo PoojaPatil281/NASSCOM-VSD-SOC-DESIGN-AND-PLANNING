@@ -130,6 +130,7 @@ Example 2 : Consider a square shape chip and the dimensions of core height is 4 
 
 Utilization = 2 unit x 2 unit / 4 unit x 4 unit=0.25
 It says that out of complete chip area 25 % of area is occupied by the logic and the remaining 75% of area is available for optimization and routing.
+
 Aspect ratio = 4 Unit /4 Unit =1
 It says that the chip is square shape.
 Define Location of Preplaced Cells : 
