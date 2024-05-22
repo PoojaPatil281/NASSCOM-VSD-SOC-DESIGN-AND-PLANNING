@@ -56,7 +56,6 @@ openlane have default switches so everytime you have to create your own config.t
 This file is also another same kind of config.tcl file. Which is the highest priority file so whatever the content present in config.tcl file will get overwrite by this file. So in conclusion, first it take default switches present in openlane then config.tcl will overwrite those switches, again if sky130A_sky130_fd_sc_hd_config.tcl file present then it will overwrite the content of config.tcl file.To open file use cmd :- less filename.tcl
 
 ### Tool Invoking, Extracting packages and data preparation steps
-- Tool Invoking
 Command used for invoking tool is docker.After invoking tool, before performing synthesis,first step is data preparation.
 ![n](https://github.com/PoojaPatil281/NASSCOM-VSD-SOC-DESIGN-AND-PLANNING/assets/149876515/affd302a-0d26-4d38-ba55-68c19b9bbdd4)
 
